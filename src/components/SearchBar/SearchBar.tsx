@@ -22,6 +22,10 @@ export const SearchBar = (): JSX.Element => {
           </button>
         </div>
       </nav>
+      <section className="navinfo container">
+        <h1 className="navinfo__location">Stays in Finland</h1>
+        <span className="nav__number">12+ stays</span>
+      </section>
     </header>
   );
 };

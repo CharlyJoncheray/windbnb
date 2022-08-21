@@ -1,28 +1,7 @@
 .stays {
-  padding-top: 10.34rem;
-
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-
-    font-family: var(--card-font);
-  }
-
-  &__title {
-    font-size: var(--biggest-font-size);
-    font-weight: 700;
-    color: var(--text-color);
-  }
-
-  &__number {
-    font-size: var(--normal-font-size);
-    font-weight: 500;
-    color: #4f4f4f;
-  }
+  padding-top: 13rem;
 
   &__cards {
-    margin-top: 1rem;
     display: grid;
   }
 }
