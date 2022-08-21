@@ -1,0 +1,42 @@
+.stays {
+  padding-top: 10.34rem;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    font-family: var(--card-font);
+  }
+
+  &__title {
+    font-size: var(--biggest-font-size);
+    font-weight: 700;
+    color: var(--text-color);
+  }
+
+  &__number {
+    font-size: var(--normal-font-size);
+    font-weight: 500;
+    color: #4f4f4f;
+  }
+
+  &__cards {
+    margin-top: 1rem;
+    display: grid;
+  }
+}
+
+@media screen and (min-width: 756px) {
+  .stays__cards {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .stays__cards {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+  }
+}

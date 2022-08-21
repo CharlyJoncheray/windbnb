@@ -1,0 +1,50 @@
+/*=============== CARD ===============*/
+.card {
+  margin: 1rem 0;
+
+  &__image {
+    border-radius: 24px;
+    width: 100%;
+    aspect-ratio: 100 / 68;
+    object-fit: cover;
+  }
+
+  &__infos {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--card-font);
+    margin-top: 0.8125rem;
+
+    &__filtering {
+      font-weight: 500;
+      font-size: var(--intermediate-font-size);
+      color: #828282;
+    }
+
+    &__superhost {
+      display: inline-block;
+      font-weight: 700;
+      font-size: var(--smaller-font-size);
+      color: #4f4f4f;
+      padding: 0.375rem 0.5rem;
+      margin-right: 0.5rem;
+      border: solid 1px #4f4f4f;
+      border-radius: 12px;
+    }
+
+    &__rating {
+      :first-child {
+        padding-right: 0.4rem;
+        font-size: 0.9rem;
+        color: var(--first-color);
+      }
+    }
+  }
+
+  &__title {
+    font-family: var(--card-font);
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    margin-top: 0.72125rem;
+  }
+}

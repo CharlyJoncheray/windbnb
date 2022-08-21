@@ -1,0 +1,33 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Mulish:wght@400;700;800&family=Poppins:wght@700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 24rem;
+
+  /*========== Colors ==========*/
+  --first-color: #eb5757e5;
+  --text-color: #333333;
+  --second-color: #828282;
+  --third-color: #bdbdbd;
+  --border-color: #f2f2f2;
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --card-font: "Montserrat", sans-serif;
+  --search-font: "Mulish", sans-serif;
+  --title-font: "Poppins", sans-serif;
+
+  --biggest-font-size: 1.125rem;
+  --normal-font-size: 0.875rem;
+  --intermediate-font-size: 0.75rem;
+  --smaller-font-size: 0.625rem;
+
+  // Responsive typography
+  @media screen and (min-width: 1024px) {
+    --biggest-font-size: 1.5rem;
+    --normal-font-size: 1rem;
+    --intermediate-font-size: 0.875rem;
+    --smaller-font-size: 0.75rem;
+  }
+}
