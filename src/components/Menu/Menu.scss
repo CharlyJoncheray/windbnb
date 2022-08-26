@@ -1,0 +1,113 @@
+.aside {
+  position: fixed;
+  width: 100%;
+  background-color: #ffffff;
+  top: -100%;
+  left: 0;
+  z-index: 200;
+  height: 39.5rem;
+
+  transition: 0.5s;
+
+  font-family: var(--search-font);
+
+  & button {
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    padding: 1.125rem 0;
+
+    &__header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      & h1 {
+        font-weight: 700;
+        font-size: var(--intermediate-font-size);
+      }
+
+      & button {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      flex-direction: column;
+
+      &--bordered {
+        border: 1px solid var(--border-color);
+        border-radius: 1rem;
+        box-shadow: 0px 1px 6px 0px #0000001a;
+      }
+
+      .button {
+        padding: 0.6875rem 1.625rem;
+        color: var(--third-color);
+        font-weight: 400;
+
+        & :first-child {
+          color: var(--text-color);
+          font-weight: 800;
+          font-size: 0.5625rem;
+          padding-bottom: 0.25rem;
+        }
+
+        &--location {
+          border-bottom: 1px solid var(--border-color);
+        }
+
+        & span {
+          display: block;
+          text-align: left;
+        }
+      }
+
+      .selected {
+        color: var(--text-color);
+      }
+    }
+
+    &__filter {
+      flex-grow: 1;
+    }
+
+    &__search {
+      align-self: center;
+      font-weight: 700;
+      font-size: var(--intermediate-font-size);
+      color: #ffffff;
+      background-color: var(--first-color);
+      padding: 0.9375rem 1.6875rem;
+      border-radius: 1rem;
+      box-shadow: 0px 1px 6px 0px #0000001a;
+
+      & i {
+        vertical-align: middle;
+        padding-right: 0.625rem;
+      }
+    }
+  }
+}
+
+.outside {
+  position: fixed;
+  width: 100%;
+  background-color: #4f4f4f66;
+  top: -100%;
+  left: 0;
+  z-index: 150;
+  height: 100%;
+}
+
+.show-aside {
+  top: 0;
+}

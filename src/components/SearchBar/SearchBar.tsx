@@ -1,7 +1,24 @@
 import React from "react";
+import { FilterEnum } from "../../App";
 import "./SearchBar.scss";
 
-export const SearchBar = (): JSX.Element => {
+type SearchBarType = {
+  displayMenu: boolean;
+  setDisplayMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  setFilter: React.Dispatch<React.SetStateAction<FilterEnum>>;
+};
+
+export const SearchBar = ({
+  displayMenu,
+  setDisplayMenu,
+  setFilter,
+}: SearchBarType): JSX.Element => {
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    setDisplayMenu(!displayMenu);
+    setFilter(e.target.name);
+  };
+
   return (
     <header className="header">
       <nav className="nav container">
@@ -11,10 +28,18 @@ export const SearchBar = (): JSX.Element => {
           </a>
         </div>
         <div className="nav__buttons nav__buttons--bordered">
-          <button className="nav__buttons nav__buttons--location">
+          <button
+            name={FilterEnum.LOCATION}
+            className="nav__buttons nav__buttons--location"
+            onClick={handleClick}
+          >
             Helsinki, Finland
           </button>
-          <button className="nav__buttons nav__buttons--guests">
+          <button
+            name={FilterEnum.GUESTS}
+            className="nav__buttons nav__buttons--guests"
+            onClick={handleClick}
+          >
             Add guests
           </button>
           <button className="nav__buttons nav__buttons--search">
