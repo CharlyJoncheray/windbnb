@@ -1,37 +1,27 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Menu } from "./components/Menu/Menu";
 import { SearchBar } from "./components/SearchBar/SearchBar";
 import { Stays } from "./components/Stays/Stays";
-import { Stay } from "./interfaces";
+import { setDisplayStays, setstays } from "./redux";
 import { getData } from "./services";
 
-export enum FilterEnum {
-  LOCATION = "location",
-  GUESTS = "guests",
-}
-
 function App() {
-  const [displayMenu, setDisplayMenu] = useState<boolean>(false);
-  const [filter, setFilter] = useState<FilterEnum>(FilterEnum.LOCATION);
-  const [data, setData] = useState<Stay[]>([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getData().then(setData);
-  }, []);
-
-  const props = {
-    displayMenu: displayMenu,
-    setDisplayMenu: setDisplayMenu,
-    filter: filter,
-    setFilter: setFilter,
-  };
+    getData().then((data) => {
+      dispatch(setstays(data));
+      dispatch(setDisplayStays(data));
+    });
+  }, [dispatch]);
 
   return (
     <>
-      <SearchBar {...props} />
-      <Menu {...props} />
+      <SearchBar />
+      <Menu />
       <main>
-        <Stays stays={data} />
+        <Stays />
       </main>
     </>
   );

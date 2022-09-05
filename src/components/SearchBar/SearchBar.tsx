@@ -1,23 +1,19 @@
-import React from "react";
-import { FilterEnum } from "../../App";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import {
+  FilterEnum,
+  openMenu,
+  RootState,
+  search,
+  setFilter,
+} from "../../redux";
 import "./SearchBar.scss";
 
-type SearchBarType = {
-  displayMenu: boolean;
-  setDisplayMenu: React.Dispatch<React.SetStateAction<boolean>>;
-  setFilter: React.Dispatch<React.SetStateAction<FilterEnum>>;
-};
-
-export const SearchBar = ({
-  displayMenu,
-  setDisplayMenu,
-  setFilter,
-}: SearchBarType): JSX.Element => {
-  const handleClick = (e: any) => {
-    e.preventDefault();
-    setDisplayMenu(!displayMenu);
-    setFilter(e.target.name);
-  };
+export const SearchBar = (): JSX.Element => {
+  const { displayedStays, location, guests } = useSelector(
+    (state: RootState) => state.stays
+  );
+  const dispatch = useDispatch();
 
   return (
     <header className="header">
@@ -30,26 +26,47 @@ export const SearchBar = ({
         <div className="nav__buttons nav__buttons--bordered">
           <button
             name={FilterEnum.LOCATION}
-            className="nav__buttons nav__buttons--location"
-            onClick={handleClick}
+            className={`nav__buttons nav__buttons--location${
+              location !== "" ? " nav__buttons--setted" : ""
+            }`}
+            onClick={() => {
+              dispatch(openMenu());
+              dispatch(setFilter(FilterEnum.LOCATION));
+            }}
           >
-            Helsinki, Finland
+            {location !== "" ? `${location}, Finland` : "Add a location"}
           </button>
           <button
             name={FilterEnum.GUESTS}
-            className="nav__buttons nav__buttons--guests"
-            onClick={handleClick}
+            className={`nav__buttons nav__buttons--guests${
+              guests.adults !== 0 || guests.childrens !== 0
+                ? " nav__buttons--setted"
+                : ""
+            }`}
+            onClick={() => {
+              dispatch(openMenu());
+              dispatch(setFilter(FilterEnum.GUESTS));
+            }}
           >
-            Add guests
+            {guests.adults !== 0 || guests.childrens !== 0
+              ? `${guests.adults + guests.childrens} guest${
+                  guests.adults + guests.childrens > 1 ? "s" : ""
+                }`
+              : "Add guests"}
           </button>
-          <button className="nav__buttons nav__buttons--search">
+          <button
+            className="nav__buttons nav__buttons--search"
+            onClick={() => dispatch(search())}
+          >
             <i className="bx bx-search-alt-2"></i>
           </button>
         </div>
       </nav>
       <section className="navinfo container">
         <h1 className="navinfo__location">Stays in Finland</h1>
-        <span className="nav__number">12+ stays</span>
+        <span className="nav__number">{`${displayedStays.length} stay${
+          displayedStays.length > 1 ? "s" : ""
+        }`}</span>
       </section>
     </header>
   );

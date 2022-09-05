@@ -1,24 +1,23 @@
-import React from "react";
-import { FilterEnum } from "../../App";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  closeMenu,
+  FilterEnum,
+  RootState,
+  search,
+  setFilter,
+} from "../../redux";
+import { Guests } from "../Guests";
+import { Locations } from "../Location";
 import "./Menu.scss";
 
-type MenuProps = {
-  displayMenu: boolean;
-  setDisplayMenu: React.Dispatch<React.SetStateAction<boolean>>;
-  filter: FilterEnum;
-  setFilter: React.Dispatch<React.SetStateAction<FilterEnum>>;
-};
+export const Menu = (): JSX.Element => {
+  const displayMenu = useSelector((state: RootState) => state.menu.display);
+  const filter = useSelector((state: RootState) => state.filter.filter);
+  const { stays, location, guests } = useSelector(
+    (state: RootState) => state.stays
+  );
 
-export const Menu = ({
-  displayMenu,
-  setDisplayMenu,
-  filter,
-  setFilter,
-}: MenuProps): JSX.Element => {
-  const handleClick = (e: any) => {
-    e.preventDefault();
-    setFilter(e.target.name);
-  };
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -26,7 +25,7 @@ export const Menu = ({
         <div className="menu container">
           <div className="menu__header">
             <h1>Edit your search</h1>
-            <button onClick={() => setDisplayMenu(!displayMenu)}>
+            <button onClick={() => dispatch(closeMenu())}>
               <i className="bx bx-x"></i>
             </button>
           </div>
@@ -36,26 +35,44 @@ export const Menu = ({
                 filter === FilterEnum.LOCATION ? "selected" : ""
               }`}
               name={FilterEnum.LOCATION}
-              onClick={handleClick}
+              onClick={() => dispatch(setFilter(FilterEnum.LOCATION))}
             >
               <span>LOCATION</span>
-              <span>Helsinki, Finland</span>
+              <span>
+                {location !== "" ? `${location}, Finland` : "Add location"}
+              </span>
             </button>
             <button
               className={`button button--guests ${
                 filter === FilterEnum.GUESTS ? "selected" : ""
               }`}
               name={FilterEnum.GUESTS}
-              onClick={handleClick}
+              onClick={() => dispatch(setFilter(FilterEnum.GUESTS))}
             >
               <span>GUESTS</span>
-              <span>Add guests</span>
+              <span>
+                {guests.adults !== 0 || guests.childrens !== 0
+                  ? `${guests.adults + guests.childrens} guest${
+                      guests.adults + guests.childrens > 1 ? "s" : ""
+                    }`
+                  : "Add guests"}
+              </span>
             </button>
           </div>
           <div className="menu__filter">
-            {filter === FilterEnum.LOCATION ? <>Location</> : <>Guests</>}
+            {filter === FilterEnum.LOCATION ? (
+              <Locations stays={stays} />
+            ) : (
+              <Guests />
+            )}
           </div>
-          <button className="menu__search">
+          <button
+            className="menu__search"
+            onClick={() => {
+              dispatch(search());
+              dispatch(closeMenu());
+            }}
+          >
             <i className="bx bx-search-alt-2"></i>
             <span>Search</span>
           </button>
@@ -63,7 +80,7 @@ export const Menu = ({
       </aside>
       <div
         className={displayMenu ? "outside show-aside" : "outside"}
-        onClick={() => setDisplayMenu(!displayMenu)}
+        onClick={() => dispatch(closeMenu())}
       ></div>
     </>
   );

@@ -1,0 +1,37 @@
+.guests {
+  margin: 2rem 1.6875rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+
+  .counter {
+    &__title {
+      font-size: var(--normal-font-size);
+      font-weight: 700;
+      color: var(--text-color);
+    }
+    &__subtitle {
+      font-size: var(--normal-font-size);
+      font-weight: 400;
+      color: var(--third-color);
+    }
+    &__buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: baseline;
+      margin-top: 0.75rem;
+
+      & :hover {
+        cursor: pointer;
+      }
+    }
+    &__button {
+      color: #828282;
+      width: 1.4375rem;
+      height: 1.4375rem;
+      border: 1px solid var(--second-color);
+      border-radius: 0.35rem;
+    }
+  }
+}

@@ -15,6 +15,10 @@
     text-decoration: none;
     border: none;
     background-color: transparent;
+
+    & :hover {
+      cursor: pointer;
+    }
   }
 
   .menu {
@@ -110,4 +114,18 @@
 
 .show-aside {
   top: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .aside .menu__buttons {
+    flex-direction: row;
+    justify-content: space-between;
+
+    .button {
+      &--location {
+        border-bottom: none;
+        border-right: 1px solid var(--border-color);
+      }
+    }
+  }
 }

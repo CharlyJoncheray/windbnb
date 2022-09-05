@@ -1,12 +1,12 @@
+import { useSelector } from "react-redux";
 import { Stay } from "../../interfaces";
+import { RootState } from "../../redux";
 import { Card } from "../Card/Card";
 import "./Stays.scss";
 
-type StaysProps = {
-  stays: Stay[];
-};
+export const Stays = (): JSX.Element => {
+  const stays = useSelector((state: RootState) => state.stays.displayedStays);
 
-export const Stays = ({ stays }: StaysProps): JSX.Element => {
   return (
     <section className="stays container">
       <div className="stays__cards">

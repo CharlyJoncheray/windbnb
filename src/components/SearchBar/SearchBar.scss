@@ -30,6 +30,7 @@
     border: none;
     width: 100%;
     align-self: center;
+    color: var(--third-color);
 
     :hover {
       cursor: pointer;
@@ -37,12 +38,10 @@
 
     .nav__buttons--location {
       border-right: 1px solid var(--border-color);
-      color: var(--text-color);
     }
 
     .nav__buttons--guests {
       border-right: 1px solid var(--border-color);
-      color: var(--third-color);
     }
 
     .nav__buttons--search {
@@ -59,6 +58,10 @@
     border-radius: 17px;
     box-shadow: 0px 1px 6px 0px #0000001a;
     height: 3.4375rem;
+  }
+
+  .nav__buttons--setted {
+    color: var(--text-color);
   }
 }
 
