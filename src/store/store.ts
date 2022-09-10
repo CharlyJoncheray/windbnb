@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+
 import menuReducer from "./menuSlice";
 import filterReducer from "./filterSlice";
 import staysReducer from "./staysSlice";

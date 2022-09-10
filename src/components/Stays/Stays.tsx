@@ -1,7 +1,9 @@
 import { useSelector } from "react-redux";
-import { Stay } from "../../interfaces";
-import { RootState } from "../../redux";
-import { Card } from "../Card/Card";
+
+import { Stay } from "@interfaces";
+import { RootState } from "@store";
+import { Card } from "@components";
+
 import "./Stays.scss";
 
 export const Stays = (): JSX.Element => {

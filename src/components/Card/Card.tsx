@@ -1,4 +1,5 @@
-import { Stay } from "../../interfaces";
+import { Stay } from "@interfaces";
+
 import "./Card.scss";
 
 type CardProps = {

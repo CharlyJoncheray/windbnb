@@ -1,13 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  closeMenu,
-  FilterEnum,
-  RootState,
-  search,
-  setFilter,
-} from "../../redux";
-import { Guests } from "../Guests";
-import { Locations } from "../Location";
+
+import { closeMenu, FilterEnum, RootState, search, setFilter } from "@store";
+import { Guests, Locations } from "@components";
+
 import "./Menu.scss";
 
 export const Menu = (): JSX.Element => {

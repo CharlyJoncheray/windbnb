@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
-import { Stay } from "../../interfaces";
-import { setLocation } from "../../redux";
+
+import { Stay } from "@interfaces";
+import { setLocation } from "@store";
+
 import "./Location.scss";
 
 export type LocationsProps = {

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Stay } from "../interfaces";
+import { Stay } from "@interfaces";
 
 interface InitialState {
   stays: Stay[];

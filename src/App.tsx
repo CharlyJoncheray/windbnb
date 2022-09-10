@@ -1,11 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Footer } from "./components/Footer";
-import { Menu } from "./components/Menu/Menu";
-import { SearchBar } from "./components/SearchBar/SearchBar";
-import { Stays } from "./components/Stays/Stays";
-import { setDisplayStays, setstays } from "./redux";
-import { getData } from "./services";
+
+import { SearchBar, Menu, Stays, Footer } from "@components";
+import { setDisplayStays, setstays } from "@store";
+import { getData } from "@services";
 
 function App() {
   const dispatch = useDispatch();

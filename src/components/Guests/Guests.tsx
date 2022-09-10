@@ -1,7 +1,9 @@
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { RootState, setAdults, setChildrens } from "../../redux";
+
+import { RootState, setAdults, setChildrens } from "@store";
+
 import "./Guests.scss";
 
 type CounterType = {

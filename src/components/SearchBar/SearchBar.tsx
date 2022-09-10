@@ -1,12 +1,8 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import {
-  FilterEnum,
-  openMenu,
-  RootState,
-  search,
-  setFilter,
-} from "../../redux";
+
+import { FilterEnum, openMenu, RootState, search, setFilter } from "@store";
+
 import "./SearchBar.scss";
 import content from "./logo.svg";
 

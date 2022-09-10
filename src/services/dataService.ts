@@ -1,4 +1,4 @@
-import { Stay } from "../interfaces";
+import { Stay } from "@interfaces";
 
 export const getData = async (): Promise<Stay[]> => {
   const data = await fetch("stays.json", {
