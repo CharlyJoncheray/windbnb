@@ -8,6 +8,7 @@ import {
   setFilter,
 } from "../../redux";
 import "./SearchBar.scss";
+import content from "./logo.svg";
 
 export const SearchBar = (): JSX.Element => {
   const { displayedStays, location, guests } = useSelector(
@@ -19,6 +20,7 @@ export const SearchBar = (): JSX.Element => {
     <header className="header">
       <nav className="nav container">
         <div className="nav__brand">
+          <img src={content} alt="logo" />
           <a href="/" className="nav__title">
             windbnb
           </a>

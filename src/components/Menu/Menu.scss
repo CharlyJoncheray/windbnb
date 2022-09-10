@@ -58,11 +58,13 @@
         color: var(--third-color);
         font-weight: 400;
 
-        & :first-child {
-          color: var(--text-color);
-          font-weight: 800;
-          font-size: 0.5625rem;
-          padding-bottom: 0.25rem;
+        &:nth-child(-n + 2) {
+          & :first-child {
+            color: var(--text-color);
+            font-weight: 800;
+            font-size: 0.5625rem;
+            padding-bottom: 0.25rem;
+          }
         }
 
         &--location {
@@ -72,6 +74,10 @@
         & span {
           display: block;
           text-align: left;
+        }
+
+        &__search--desktop {
+          display: none;
         }
       }
 
@@ -117,14 +123,63 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .aside .menu__buttons {
-    flex-direction: row;
-    justify-content: space-between;
+  .aside {
+    height: 28.75rem;
 
-    .button {
-      &--location {
-        border-bottom: none;
-        border-right: 1px solid var(--border-color);
+    .menu {
+      &__header {
+        display: none;
+      }
+
+      &__buttons {
+        margin-top: 5.8rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        .button {
+          &--location {
+            flex-grow: 1;
+            border-bottom: none;
+            border-right: 1px solid var(--border-color);
+          }
+          &--guests {
+            flex-grow: 1;
+            border-right: 1px solid var(--border-color);
+          }
+          &__search--desktop {
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+
+            button {
+              display: flex;
+              align-self: center;
+              font-weight: 700;
+              font-size: var(--intermediate-font-size);
+              color: #ffffff;
+              background-color: var(--first-color);
+              padding: 0.9375rem 1.6875rem;
+              border-radius: 1rem;
+              box-shadow: 0px 1px 6px 0px #0000001a;
+
+              & i {
+                vertical-align: middle;
+                padding-right: 0.625rem;
+              }
+            }
+          }
+        }
+      }
+
+      &__filter {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      &__search {
+        &--mobile {
+          display: none;
+        }
       }
     }
   }

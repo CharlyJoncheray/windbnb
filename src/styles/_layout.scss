@@ -4,3 +4,9 @@
   margin-left: 0.75rem;
   margin-right: 0.75rem;
 }
+
+#root {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}

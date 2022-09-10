@@ -14,6 +14,12 @@
   flex-direction: column;
   row-gap: 2.4375rem;
 
+  &__brand {
+    img {
+      padding-right: 0.33rem;
+    }
+  }
+
   &__title {
     font-family: var(--title-font);
     font-weight: 700;

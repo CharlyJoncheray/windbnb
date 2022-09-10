@@ -58,6 +58,17 @@ export const Menu = (): JSX.Element => {
                   : "Add guests"}
               </span>
             </button>
+            <div className="button button__search button__search--desktop">
+              <button
+                onClick={() => {
+                  dispatch(search());
+                  dispatch(closeMenu());
+                }}
+              >
+                <i className="bx bx-search-alt-2"></i>
+                <span>Search</span>
+              </button>
+            </div>
           </div>
           <div className="menu__filter">
             {filter === FilterEnum.LOCATION ? (
@@ -67,7 +78,7 @@ export const Menu = (): JSX.Element => {
             )}
           </div>
           <button
-            className="menu__search"
+            className="menu__search menu__search--mobile"
             onClick={() => {
               dispatch(search());
               dispatch(closeMenu());

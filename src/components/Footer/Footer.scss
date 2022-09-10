@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  font-family: var(--card-font);
+  font-weight: 500;
+  font-size: var(--normal-font-size);
+  color: var(--second-color);
+  align-self: flex-end;
+  column-gap: 0.5rem;
+  padding: 1.625rem 0;
+  min-height: calc(var(--normal-font-size) + 1.625rem * 2);
+
+  a {
+    color: var(--second-color);
+
+    &:first-of-type {
+      font-size: 700;
+      text-decoration: underline;
+    }
+  }
+}

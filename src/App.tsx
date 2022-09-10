@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Footer } from "./components/Footer";
 import { Menu } from "./components/Menu/Menu";
 import { SearchBar } from "./components/SearchBar/SearchBar";
 import { Stays } from "./components/Stays/Stays";
@@ -23,6 +24,7 @@ function App() {
       <main>
         <Stays />
       </main>
+      <Footer />
     </>
   );
 }

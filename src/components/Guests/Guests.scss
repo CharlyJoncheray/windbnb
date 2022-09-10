@@ -35,3 +35,9 @@
     }
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .guests {
+    grid-column-start: 2;
+  }
+}
