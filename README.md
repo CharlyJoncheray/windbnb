@@ -49,7 +49,7 @@ I fullfiled the differents stories bellow :
 - I can see the number of filtered items
 - I can see pages following given designs
 
-I decided to use sass and mobile first approach. I used Redux for state managment. I also use absolute import for to simplify imports in the project. For that, I used craco to override the webpack configuration provided by create-react-app.
+I decided to use sass and mobile first approach. I also use absolute import for to simplify imports in the project. For that, I used craco to override the webpack configuration provided by create-react-app.
 
 ### Built With
 
